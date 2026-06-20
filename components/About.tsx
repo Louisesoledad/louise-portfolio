@@ -48,10 +48,8 @@ export default function About() {
             </h2>
 
             <p className="text-base leading-[1.75] text-[#66737b] sm:text-lg lg:text-xl lg:leading-[1.9]">
-              I&apos;m Louise, a graduating Computer Science student passionate
-              about building meaningful and impactful technology. My experience
-              spans web development and machine learning-based systems where I
-              developed strong problem-solving and system design skills.
+              I&apos;m Louise, a Computer Science graduate with a passion for building meaningful and impactful technology. 
+              I have experience in web development and machine learning-based systems, which helped me strengthen my problem-solving and system design skills.
             </p>
           </div>
         </div>
