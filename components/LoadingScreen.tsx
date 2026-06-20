@@ -103,6 +103,7 @@ export default function LoadingScreen() {
       className={`loading-screen ${isComplete ? "loading-screen-complete" : ""}`}
       role="status"
     >
+      
       <div className="loading-word-wrap">
         <span className="sr-only">{loadingText}</span>
 

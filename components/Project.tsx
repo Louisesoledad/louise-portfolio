@@ -102,10 +102,10 @@ export default function Project() {
     background: `
       linear-gradient(
         to bottom,
-        #ececec 0%,
-        #ececec 40%,
-        #d6dcdf 55%,
-        #7b8a92 70%,
+        #263941 0%,
+        #263941 40%,
+        #2c424b 55%,
+        #30454d 70%,
         #233239 88%,
         #233239 100%
       )
@@ -134,17 +134,17 @@ export default function Project() {
       <div className="relative z-10 mx-auto max-w-[1400px] px-4 pb-14 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-10 lg:pt-32">
         {/* HEADER */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-extrabold text-[#344754] sm:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
             Featured Projects
           </h2>
 
-          <p className="mt-4 text-base leading-relaxed text-[#66737b] sm:mt-6 sm:text-lg lg:text-xl">
+          <p className="mt-4 text-base leading-relaxed text-white/72 sm:mt-6 sm:text-lg lg:text-xl">
             Selected work that showcases my design and development skills.
           </p>
         </div>
 
         {/* FEATURED PROJECT */}
-        <div className="mt-10 overflow-hidden rounded-2xl border-2 border-[#7b8a92] bg-white/20 backdrop-blur-sm sm:mt-16 sm:rounded-[32px]">
+        <div className="mt-10 overflow-hidden rounded-2xl border-2 border-[#9aa8ae] bg-[#edf0f1]/95 shadow-[0_24px_58px_rgba(5,12,16,0.28)] backdrop-blur-sm sm:mt-16 sm:rounded-[32px]">
           <div className="grid lg:grid-cols-2">
   <div className="relative min-h-[300px] overflow-hidden sm:min-h-[420px] lg:min-h-[560px]">
   <Image
@@ -207,7 +207,7 @@ export default function Project() {
                 {featuredProject.title}
               </h3>
 
-              <p className="mt-4 text-base leading-relaxed text-[#66737b] sm:mt-6 sm:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-[#334650] sm:mt-6 sm:text-lg">
                 {featuredProject.description}
               </p>
 

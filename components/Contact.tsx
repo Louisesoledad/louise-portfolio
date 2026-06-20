@@ -72,7 +72,7 @@ export default function Contact() {
       />
 
       <div
-        className="absolute -right-[18vw] bottom-[-16vw] hidden h-[44vw] w-[44vw] rounded-full bg-[#40535d]/45 lg:block"
+        className="absolute -right-[16.5vw] bottom-[-16vw] hidden h-[44vw] w-[44vw] rounded-full bg-[#40535d]/45 lg:block"
         style={{
           WebkitMaskImage:
             "radial-gradient(circle at 0% 0%, transparent 0%, transparent 23%, rgba(0,0,0,.15) 28%, rgba(0,0,0,.45) 34%, black 42%)",

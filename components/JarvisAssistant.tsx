@@ -74,7 +74,7 @@ const portfolioData = {
   title: "Aspiring Software Developer",
   tagline: "Building digital solutions that combine creativity, technology, and problem-solving.",
   bio: "Louise is a graduating Computer Science student who builds meaningful web and machine learning-based systems.",
-  philosophy: "She focuses on practical, human-centered software with strong problem-solving and system design.",
+  philosophy: "He focuses on practical, human-centered software with strong problem-solving and system design.",
   skills: ["TypeScript", "JavaScript", "Python", "React", "Next.js", "HTML", "CSS", "Firebase"],
   tools: ["WordPress", "Adobe Photoshop", "Blender", "TensorFlow", "MediaPipe", "NumPy", "Vosk"],
   services: ["Frontend Development", "Full-Stack Web Apps", "Machine Learning Prototypes", "Firebase-backed systems"],
@@ -103,16 +103,16 @@ const intents: Intent[] = [
     name: "greeting",
     keywords: ["hi", "hello", "hey", "kumusta", "good morning", "good afternoon", "good evening"],
     responses: [
-      "Hi, welcome to Louise's portfolio. Ask me about her projects, skills, or how to contact her.",
-      "Hello, I'm Louise's portfolio concierge. What would you like to know about her work?",
+      "Hi, welcome to Louise's portfolio. Ask me about his projects, skills, or how to contact him.",
+      "Hello, I'm Louise's portfolio concierge. What would you like to know about his work?",
     ],
   },
   {
     name: "identity",
-    keywords: ["who", "name", "about her", "about louise", "tell me about", "introduce"],
+    keywords: ["who", "name", "about him", "about louise", "tell me about", "introduce"],
     responses: [
       `${portfolioData.name} is an ${portfolioData.title} focused on meaningful web and machine learning-based systems.`,
-      `Louise is a graduating Computer Science student who blends creativity, code, and problem-solving in her projects.`,
+      `Louise is a graduating Computer Science student who blends creativity, code, and problem-solving in his projects.`,
     ],
   },
   {
@@ -123,12 +123,12 @@ const intents: Intent[] = [
   {
     name: "tools",
     keywords: ["tools", "software", "figma", "photoshop", "blender", "firebase", "tensorflow", "mediapipe", "vosk"],
-    responses: [`Her toolkit includes ${portfolioData.tools.join(", ")}.`],
+    responses: [`His toolkit includes ${portfolioData.tools.join(", ")}.`],
   },
   {
     name: "projects",
     keywords: ["projects", "work", "portfolio", "showcase", "works", "apps", "systems"],
-    responses: ["Her featured work includes BridgeTalk, DeckTago, and Task Manager. Open the Projects section to explore them."],
+    responses: ["His featured work includes BridgeTalk, DeckTago, and Task Manager. Open the Projects section to explore them."],
   },
   {
     name: "bridgetalk",
@@ -153,7 +153,7 @@ const intents: Intent[] = [
   {
     name: "hire",
     keywords: ["hire", "freelance", "collaborate", "work together", "available", "commission", "book"],
-    responses: [`${portfolioData.availability}. Head to the Contact section and send her a message.`],
+    responses: [`${portfolioData.availability}. Head to the Contact section and send him a message.`],
   },
   {
     name: "thanks",
@@ -169,7 +169,7 @@ const intents: Intent[] = [
 
 const navCommands: NavigationCommand[] = [
   { keywords: ["go home", "home page", "main page", "homepage"], path: "/#home", label: "Home", targetId: "home" },
-  { keywords: ["about", "about page", "about her", "meet louise"], path: "/about", label: "About" },
+  { keywords: ["about", "about page", "about him", "meet louise"], path: "/about", label: "About" },
   {
     keywords: ["projects", "project page", "portfolio page", "show projects", "view projects"],
     path: "/projects",
@@ -525,7 +525,7 @@ export default function JarvisAssistant() {
       const reply = intent
         ? pickRandom(intent.responses)
         : pickRandom([
-            "Try asking about Louise's BridgeTalk project, tech stack, or how to contact her.",
+            "Try asking about Louise's BridgeTalk project, tech stack, or how to contact him.",
             "I can help with Louise's projects, skills, and collaboration details.",
           ]);
 
