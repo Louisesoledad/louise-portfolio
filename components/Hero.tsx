@@ -68,7 +68,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate min-h-[760px] overflow-hidden bg-[#fafaf8] text-[#142635] lg:h-screen lg:min-h-[720px]"
+      className="relative isolate min-h-screen overflow-hidden bg-[#fafaf8] text-[#142635] lg:h-screen lg:min-h-[720px]"
     >
       <div className="absolute bottom-[109px] left-1/2 right-0 top-0 hidden bg-[linear-gradient(90deg,#fbfbfa_0%,#eef1f2_32%,#b9c1c5_100%)] lg:block" />
 
@@ -83,61 +83,60 @@ export default function Hero() {
       />
 
       <div
-  className="absolute bottom-[-260px] right-[160px] z-0 hidden h-[980px] w-[980px] overflow-hidden rounded-full bg-[#263941] lg:block"
-  style={{
-    WebkitMaskImage:
-      "radial-gradient(circle at -18% -18%, transparent 0%, transparent 42%, rgba(0,0,0,.15) 46%, rgba(0,0,0,.55) 52%, black 58%)",
-    maskImage:
-      "radial-gradient(circle at -18% -18%, transparent 0%, transparent 42%, rgba(0,0,0,.15) 46%, rgba(0,0,0,.55) 52%, black 58%)",
-  }}
->
-</div>
+        className="absolute bottom-[-260px] right-[160px] z-0 hidden h-[980px] w-[980px] overflow-hidden rounded-full bg-[#263941] lg:block"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(circle at -18% -18%, transparent 0%, transparent 42%, rgba(0,0,0,.15) 46%, rgba(0,0,0,.55) 52%, black 58%)",
+          maskImage:
+            "radial-gradient(circle at -18% -18%, transparent 0%, transparent 42%, rgba(0,0,0,.15) 46%, rgba(0,0,0,.55) 52%, black 58%)",
+        }}
+      />
 
       <div className="absolute bottom-0 left-0 right-0 z-30 h-[109px] bg-[#263941] max-lg:h-[92px]" />
 
-      <div className="relative z-10 grid min-h-[inherit] w-full grid-cols-1 px-6 pb-[118px] pt-[138px] sm:px-10 lg:h-full lg:grid-cols-2 lg:px-0 lg:py-0">
-        <div className="flex min-h-0 min-w-0 flex-col lg:pl-[340px] lg:pt-[400px]">
+      <div className="relative z-10 grid min-h-screen w-full grid-cols-1 px-5 pb-[120px] pt-[118px] sm:px-10 sm:pt-[138px] lg:h-full lg:min-h-[inherit] lg:grid-cols-2 lg:px-0 lg:py-0">
+        <div className="flex min-h-0 min-w-0 flex-col justify-center lg:justify-start lg:pl-[340px] lg:pt-[400px]">
           <p className="sr-only">Louise Portfolio</p>
 
-          <h1 className="max-w-full text-[42px] font-black leading-[0.95] tracking-normal text-[#142635] sm:max-w-[560px] sm:text-[56px] lg:text-[60px]">
+          <h1 className="max-w-full text-[clamp(2.45rem,13vw,3.5rem)] font-black leading-[0.95] tracking-normal text-[#142635] sm:max-w-[560px] sm:text-[56px] lg:text-[60px]">
             Hi, I&apos;m Louise
           </h1>
 
-          <h2 className="mt-2 max-w-full whitespace-normal text-[20px] font-extrabold leading-tight tracking-normal text-[#2f4452] sm:max-w-[560px] sm:text-[27px] lg:whitespace-nowrap">
+          <h2 className="mt-2 max-w-full whitespace-normal text-[clamp(1.2rem,6vw,1.7rem)] font-extrabold leading-tight tracking-normal text-[#2f4452] sm:max-w-[560px] sm:text-[27px] lg:whitespace-nowrap">
             Aspiring Software Developer
           </h2>
 
-          <p className="mt-9 max-w-full text-[18px] font-medium leading-[1.38] tracking-normal text-[#233845] sm:max-w-[545px] sm:text-[21px] lg:mt-12">
-  Building digital solutions that combine creativity,
-  technology, and problem-solving.
-</p>
+          <p className="mt-7 max-w-full text-[17px] font-medium leading-[1.45] tracking-normal text-[#233845] sm:max-w-[545px] sm:text-[21px] lg:mt-12">
+            Building digital solutions that combine creativity, technology, and
+            problem-solving.
+          </p>
 
-          <div className="mt-11 flex flex-wrap items-center gap-6 lg:mt-16">
+          <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-6 lg:mt-16">
             <a
               href="#projects"
-              className="rounded-full border-[3px] border-[#18303d] bg-white/70 px-6 py-2.5 text-[18px] font-medium tracking-normal text-[#142635] shadow-[0_1px_0_rgba(255,255,255,0.8)] transition hover:bg-white sm:text-[20px]"
+              className="rounded-full border-[3px] border-[#18303d] bg-white/70 px-5 py-2.5 text-[16px] font-medium tracking-normal text-[#142635] shadow-[0_1px_0_rgba(255,255,255,0.8)] transition hover:bg-white sm:px-6 sm:text-[20px]"
             >
               View Projects&nbsp; &gt;
             </a>
 
             <a
               href="#contact"
-              className="rounded-full border border-[#172b36] bg-[#344752] px-9 py-3 text-[18px] font-medium tracking-normal text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition hover:bg-[#273a45] sm:text-[20px]"
+              className="rounded-full border border-[#172b36] bg-[#344752] px-7 py-3 text-[16px] font-medium tracking-normal text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition hover:bg-[#273a45] sm:px-9 sm:text-[20px]"
             >
               Hire Me
             </a>
           </div>
         </div>
 
-        <div className="relative hidden min-h-0 lg:block">
+        <div className="relative mt-10 flex min-h-0 items-end justify-center lg:mt-0 lg:block">
           <Image
             src="/profile.png"
             alt="Portrait of Louise"
             width={2048}
             height={2048}
             preload
-            sizes="780px"
-            className="pointer-events-none absolute left-[-130px] top-[110px] z-20 h-[900px] w-[950px] select-none object-contain grayscale brightness-90"
+            sizes="(max-width: 1023px) 82vw, 780px"
+            className="pointer-events-none relative z-20 h-auto w-[min(82vw,360px)] select-none object-contain grayscale brightness-90 lg:absolute lg:left-[-130px] lg:top-[110px] lg:h-[900px] lg:w-[950px]"
           />
         </div>
       </div>

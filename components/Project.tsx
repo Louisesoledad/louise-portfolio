@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 const featuredProject = {
@@ -53,16 +53,33 @@ const projects = [
   ],
 },
   {
-    title: "Task Manager",
-    image: "/projects/taskmanager.png",
-    description: "Productivity application for daily workflow.",
-    website: "https://your-demo.com",
-    stack: ["React", "Node.js", "Express"],
+    title: "DeckTaGo Inventory and Sales Management System",
+    image: "/projects/Barcode-Based-Inventory-and-Sales-Management-System-for-Deckta.png",
+    description:
+      "A barcode-based inventory and sales management system for DeckTaGo, built for real-time stock tracking, weight-based product monitoring, role-based dashboards, and FIFO inventory deductions.",
+    website:
+      "https://deckta-inventory-sales.vercel.app",
+    stack: [
+      "Next.js",
+      "React",
+      "Firebase Firestore",
+      "Firebase Authentication",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Zustand",
+      "Recharts",
+      "jsbarcode",
+      "react-barcode",
+    ],
     features: [
-      "Create tasks",
-      "Task status tracking",
-      "Priority management",
-      "Responsive dashboard",
+      "Barcode scanning integration",
+      "Precise weight-based inventory tracking in kilograms",
+      "Role-based dashboards for Owner, Encoder, and Sales users",
+      "FIFO deduction logic for oldest-batch stock movement",
+      "Comprehensive sales dashboard with transaction analytics",
+      "Smart low-stock and expiration notifications",
+      "Real-time synchronization across active clients",
     ],
   },
 ];
@@ -114,7 +131,7 @@ export default function Project() {
   }}
 />
 
-      <div className="relative z-10 mx-auto max-w-[1400px] px-10 py-20">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-10 pb-20 pt-32">
         {/* HEADER */}
         <div className="text-center">
           <h2 className="text-5xl font-extrabold text-[#344754] lg:text-6xl">
@@ -224,7 +241,7 @@ export default function Project() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="overflow-hidden rounded-[24px] border-2 border-[#7b8a92] bg-white/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="overflow-hidden rounded-[24px] border-2 border-[#7b8a92] bg-[#edf0f1]/90 shadow-[0_16px_34px_rgba(20,35,45,0.12)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               <div className="relative h-[240px]">
                 <Image
@@ -235,12 +252,12 @@ export default function Project() {
                 />
               </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#344754]">
+              <div className="bg-[#edf0f1]/95 p-6">
+                <h3 className="text-2xl font-bold text-[#243641]">
                   {project.title}
                 </h3>
 
-                <p className="mt-3 leading-relaxed text-slate-700">
+                <p className="mt-3 leading-relaxed text-[#334650]">
   {project.description}
 </p>
 
@@ -259,12 +276,12 @@ export default function Project() {
 
       {selectedProject && (
         <div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-6"
+          className="scrollbar-hide fixed inset-0 z-[999] overflow-y-auto bg-black/70 p-4 sm:p-6"
           onClick={() => setSelectedProject(null)}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-3xl rounded-3xl bg-white p-8"
+            className="scrollbar-hide mx-auto my-6 max-h-[calc(100dvh-3rem)] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white p-5 sm:my-8 sm:p-8"
           >
             <div className="flex items-center justify-between">
               <h2 className="text-3xl font-bold text-[#344754]">
@@ -279,7 +296,7 @@ export default function Project() {
               </button>
             </div>
 
-            <div className="relative mt-6 h-[300px] overflow-hidden rounded-2xl">
+            <div className="relative mt-6 h-[220px] overflow-hidden rounded-2xl sm:h-[300px]">
               <Image
                 src={selectedProject.image}
                 alt={selectedProject.title}
@@ -321,7 +338,7 @@ export default function Project() {
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#263941] px-5 py-2 text-white transition hover:opacity-90"
               >
-                Visit Website
+                View Website
               </a>
             </div>
           </div>
