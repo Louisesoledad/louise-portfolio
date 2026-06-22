@@ -5,13 +5,13 @@ import Image from "next/image";
 const featuredProject = {
   title: "BridgeTalk",
   images: [
-  "/projects/bridgetalk.png",
-  "/projects/bridgetalk1.png",
-  "/projects/bridgetalk2.png",
-  "/projects/bridgetalk3.png",
-  "/projects/bridgetalk4.png",
-  "/projects/bridgetalk5.png",
-  "/projects/bridgetalk6.png",
+  "/projects/bridgetalk/1.png",
+  "/projects/bridgetalk/2.png",
+  "/projects/bridgetalk/3.png",
+  "/projects/bridgetalk/4.png",
+  "/projects/bridgetalk/5.png",
+  "/projects/bridgetalk/6.png",
+  "/projects/bridgetalk/7.png",
 ],
 
   description:
@@ -30,7 +30,18 @@ const featuredProject = {
 const projects = [
  {
   title: "DeckTago",
-  image: "/projects/decktago.png",
+  images: [
+  "/projects/decktago/1.png",
+  "/projects/decktago/2.png",
+  "/projects/decktago/3.png",
+  "/projects/decktago/4.png",
+  "/projects/decktago/5.png",
+  "/projects/decktago/6.png",
+  "/projects/decktago/7.png",
+  "/projects/decktago/8.png",
+  "/projects/decktago/9.png",
+  "/projects/decktago/10.png",
+],
   description:
     "A full-stack e-commerce web application designed for ordering meat products online. Customers can browse available products, manage their shopping cart, securely place orders, and enjoy a responsive shopping experience across devices.",
 
@@ -54,7 +65,20 @@ const projects = [
 },
   {
     title: "DeckTaGo Inventory and Sales Management System",
-    image: "/projects/Barcode-Based-Inventory-and-Sales-Management-System-for-Deckta.png",
+    images: [
+  "/projects/inventory/1.png",
+  "/projects/inventory/2.png",
+  "/projects/inventory/3.png",
+  "/projects/inventory/4.png",
+  "/projects/inventory/5.png",
+  "/projects/inventory/6.png",
+  "/projects/inventory/7.png",
+  "/projects/inventory/8.png",
+  "/projects/inventory/9.png",
+  "/projects/inventory/10.png",
+  "/projects/inventory/11.png",
+  
+],
     description:
       "A barcode-based inventory and sales management system for DeckTaGo, built for real-time stock tracking, weight-based product monitoring, role-based dashboards, and FIFO inventory deductions.",
     website:
@@ -87,6 +111,7 @@ const projects = [
 
 export default function Project() {
   const [currentImage, setCurrentImage] = useState(0);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
 
 
@@ -149,11 +174,12 @@ export default function Project() {
           <div className="grid lg:grid-cols-2">
   <div className="relative min-h-[300px] overflow-hidden sm:min-h-[420px] lg:min-h-[560px]">
   <Image
-    src={featuredProject.images[currentImage]}
-    alt={featuredProject.title}
-    fill
-    className="object-cover transition-all duration-500"
-  />
+  key={featuredProject.images[currentImage]}
+  src={featuredProject.images[currentImage]}
+  alt={featuredProject.title}
+  fill
+  className="object-cover transition-all duration-500"
+/>
 
   {/* PREV */}
   <button
@@ -247,7 +273,7 @@ export default function Project() {
             >
               <div className="relative aspect-[16/10] min-h-[190px] sm:h-[240px] sm:aspect-auto">
                 <Image
-                  src={project.image}
+                  src={project.images[0]}
                   alt={project.title}
                   fill
                   className="object-cover"
@@ -264,7 +290,10 @@ export default function Project() {
 </p>
 
                 <button
-  onClick={() => setSelectedProject(project)}
+  onClick={() => {
+  setSelectedProject(project);
+  setModalImageIndex(0);
+}}
   className="mt-5 w-full rounded-full border border-[#263941] px-5 py-2 text-[#263941] transition hover:bg-[#263941] hover:text-white sm:w-auto"
 >
   View Project
@@ -299,13 +328,58 @@ export default function Project() {
             </div>
 
             <div className="relative mt-5 aspect-[16/10] min-h-[180px] overflow-hidden rounded-xl sm:mt-6 sm:h-[300px] sm:aspect-auto sm:rounded-2xl">
-              <Image
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                fill
-                className="object-cover"
-              />
-            </div>
+  <Image
+  key={selectedProject.images[modalImageIndex]}
+  src={selectedProject.images[modalImageIndex]}
+  alt={selectedProject.title}
+  fill
+  className="object-cover"
+/>
+
+  {selectedProject.images.length > 1 && (
+    <>
+      <button
+        onClick={() =>
+          setModalImageIndex((prev) =>
+            prev === 0
+              ? selectedProject.images.length - 1
+              : prev - 1
+          )
+        }
+        className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white"
+      >
+        ‹
+      </button>
+
+      <button
+        onClick={() =>
+          setModalImageIndex((prev) =>
+            prev === selectedProject.images.length - 1
+              ? 0
+              : prev + 1
+          )
+        }
+        className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white"
+      >
+        ›
+      </button>
+    </>
+  )}
+
+  <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+    {selectedProject.images.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setModalImageIndex(index)}
+        className={`h-2.5 w-2.5 rounded-full ${
+          modalImageIndex === index
+            ? "bg-white"
+            : "bg-white/50"
+        }`}
+      />
+    ))}
+  </div>
+</div>
 
             <p className="mt-5 text-sm leading-relaxed text-[#66737b] sm:mt-6 sm:text-base">
               {selectedProject.description}

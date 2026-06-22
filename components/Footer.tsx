@@ -47,7 +47,7 @@ export default function Footer() {
               className="grid h-24 w-24 place-items-center md:ml-14"
             >
               <Image
-                src="/logo2.png"
+                src="/aw.png"
                 alt="Louise Soledad logo"
                 width={96}
                 height={96}
