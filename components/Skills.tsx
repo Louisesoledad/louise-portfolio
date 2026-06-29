@@ -1,16 +1,16 @@
 import Image from "next/image";
 
 const skills = [
-  { name: "TypeScript", icon: "/skills/typescript.png" },
-  { name: "JavaScript", icon: "/skills/javascript.png" },
-  { name: "Python", icon: "/skills/python.png" },
-  { name: "Next.js", icon: "/skills/nextjs.png" },
-  { name: "HTML", icon: "/skills/html.png" },
-  { name: "CSS", icon: "/skills/css.png" },
-  { name: "Firebase", icon: "/skills/firebase.png" },
-  { name: "WordPress", icon: "/skills/wordpress.png" },
-  { name: "Adobe Photoshop", icon: "/skills/photoshop.png" },
-  { name: "Blender", icon: "/skills/blender.png" },
+  { name: "TypeScript", icon: "/skills/typescript.webp" },
+  { name: "JavaScript", icon: "/skills/javascript.webp" },
+  { name: "Python", icon: "/skills/python.webp" },
+  { name: "Next.js", icon: "/skills/nextjs.webp" },
+  { name: "HTML", icon: "/skills/html.webp" },
+  { name: "CSS", icon: "/skills/css.webp" },
+  { name: "Firebase", icon: "/skills/firebase.webp" },
+  { name: "WordPress", icon: "/skills/wordpress.webp" },
+  { name: "Adobe Photoshop", icon: "/skills/photoshop.webp" },
+  { name: "Blender", icon: "/skills/blender.webp" },
 ];
 
 export default function Skills() {

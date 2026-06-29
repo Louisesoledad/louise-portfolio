@@ -40,8 +40,8 @@ const socialLinks = [
     href: "https://www.instagram.com/louiseeverse",
     icon: FaInstagram,
   },
-  { label: "GitHub", href: "https://github.com/louiseverse", icon: FaGithub },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: FaLinkedinIn },
+  { label: "GitHub", href: "https://github.com/Louisesoledad", icon: FaGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/louiseangelosoledad", icon: FaLinkedinIn },
 ];
 
 export default function Contact() {

@@ -40,7 +40,7 @@ const socials = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/louiseverse",
+    href: "https://github.com/Louisesoledad",
     icon: (
       <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5">
         <path
@@ -52,7 +52,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/louiseangelosoledad",
     icon: (
       <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5">
         <path
@@ -130,7 +130,7 @@ export default function Hero() {
 
         <div className="relative mt-10 flex min-h-0 items-end justify-center lg:mt-0 lg:block">
           <Image
-            src="/profile.png"
+            src="/profile.webp"
             alt="Portrait of Louise"
             width={2048}
             height={2048}
