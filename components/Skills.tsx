@@ -96,12 +96,12 @@ const iconMap: Record<string, string> = {
 function SkillItem({ icon, label }: { icon: string; label: string }) {
   return (
     <div className="group flex flex-col items-center gap-2.5 sm:gap-3">
-      <div className="flex h-14 w-14 items-center justify-center transition-transform duration-[250ms] ease-out group-hover:-translate-y-1 group-hover:scale-[1.08] sm:h-16 sm:w-16 lg:h-20 lg:w-20">
+      <div className="flex h-16 w-16 items-center justify-center transition-transform duration-[250ms] ease-out group-hover:-translate-y-1 group-hover:scale-[1.08] sm:h-20 sm:w-20 lg:h-24 lg:w-24">
         <Image
           src={`/skills/${icon}`}
           alt={label}
-          width={80}
-          height={80}
+          width={96}
+          height={96}
           className="object-contain"
         />
       </div>
@@ -118,7 +118,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen overflow-hidden bg-[#DCDCDD]"
+      className="relative min-h-screen overflow-hidden bg-[#DCDCDD] px-4 sm:px-6 lg:px-8"
     >
 
       {/* ── Dot pattern with vertical fade ── */}
@@ -381,8 +381,8 @@ export default function Skills() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 py-16 sm:px-10 sm:py-24 lg:px-10 lg:py-28">
-        <div className="mx-auto max-w-[860px] text-left">
+      <div className="relative z-10 mx-auto max-w-[1120px] py-16 sm:py-24 lg:py-28">
+        <div className="text-left w-full">
           <h2 className="text-[clamp(2.15rem,8.6vw,4.15rem)] font-extrabold leading-none text-[#36454F]">
             Tech Stack
           </h2>
@@ -392,14 +392,14 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-[860px] space-y-12 sm:mt-16 sm:space-y-14 lg:mt-20 lg:space-y-16">
+        <div className="mt-12 space-y-12 sm:mt-16 sm:space-y-14 lg:mt-20 lg:space-y-16 w-full">
           {skillGroups.map((group) => (
             <div key={group.category}>
               <h3 className="text-left text-sm font-extrabold uppercase tracking-[0.12em] text-[#899097] sm:text-base lg:text-lg">
                 {group.category}
               </h3>
 
-              <div className="mx-auto mt-8 grid max-w-[500px] grid-cols-3 gap-x-4 gap-y-8 sm:mt-10 sm:max-w-[760px] sm:grid-cols-5 sm:gap-x-6 sm:gap-y-10 lg:max-w-[860px] lg:grid-cols-5 lg:gap-x-8 lg:gap-y-12">
+              <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:mt-10 sm:grid-cols-4 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-12 w-full">
                 {group.skills.map((skill) => (
                   <SkillItem
                     key={skill}

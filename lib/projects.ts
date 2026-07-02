@@ -6,6 +6,8 @@ export interface Project {
   screenshots: string[];
   features: string[];
   techStack: string[];
+  githubUrl?: string;
+  websiteUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -32,7 +34,18 @@ export const projects: Project[] = [
       "Two-way bidirectional communication",
       "Accessible design for Deaf and hearing users",
     ],
-    techStack: ["Python", "TensorFlow", "MediaPipe", "OpenCV", "NumPy", "Vosk", "Blender"],
+    techStack: [
+      "Python", 
+      "TensorFlow", 
+      "MediaPipe", 
+      "OpenCV", 
+      "NumPy", 
+      "Vosk", 
+      "Blender",
+      "PyQt5",
+      "Transformer",
+    ],
+    githubUrl: "https://github.com/Louisesoledad/BridgeTalk",
   },
   {
     id: "decktago",
@@ -60,7 +73,15 @@ export const projects: Project[] = [
       "Responsive mobile-friendly interface",
       "Real-time data with Firebase Firestore",
     ],
-    techStack: ["Next.js", "React", "TypeScript", "Firebase", "Tailwind CSS", "Vercel"],
+    techStack: [
+      "Next.js", 
+      "React", 
+      "TypeScript", 
+      "Firebase Firestore",
+      "Firebase Auth", 
+      "Tailwind CSS", 
+      "Vercel"],
+    websiteUrl: "https://decktago-vert.vercel.app",
   },
   {
     id: "inventory",
@@ -103,5 +124,6 @@ export const projects: Project[] = [
       "jsbarcode",
       "Vercel",
     ],
+    websiteUrl: "https://deckta-inventory-sales.vercel.app",
   },
 ];

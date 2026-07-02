@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from "react";
 
 const stats = [
   { value: 3, display: "03", label: "Projects Built", padded: true },
-  { value: 170, display: "170", label: "Git Commits", padded: false },
+  { value: 172, display: "170", label: "Git Commits", padded: false },
   { value: 29, display: "29", label: "Tech Stack", padded: false },
 ];
 

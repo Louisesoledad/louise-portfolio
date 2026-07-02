@@ -241,6 +241,40 @@ function ProjectSection({
                 ))}
               </div>
             </motion.div>
+
+            {/* Action buttons (View GitHub / View Website) */}
+            {(project.githubUrl || project.websiteUrl) && (
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={fadeUp}
+                className="mt-6 flex flex-wrap gap-3"
+              >
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#36454F] bg-[#36454F] px-5 py-2.5 text-xs font-bold text-white transition-all duration-300 hover:bg-[#4C5C68] hover:border-[#4C5C68] hover:shadow-lg active:scale-95 cursor-pointer sm:px-6 sm:py-3 sm:text-sm"
+                  >
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View GitHub
+                  </a>
+                )}
+                {project.websiteUrl && (
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#36454F]/20 bg-white/80 px-5 py-2.5 text-xs font-bold text-[#36454F] transition-all duration-300 hover:border-[#36454F] hover:bg-white hover:shadow-lg active:scale-95 cursor-pointer sm:px-6 sm:py-3 sm:text-sm"
+                  >
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    View Website
+                  </a>
+                )}
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
@@ -275,30 +309,160 @@ export default function ProjectsPage() {
 
   return (
     <div
-      className="min-h-screen"
+      className="relative min-h-screen overflow-hidden"
       style={{ background: "linear-gradient(180deg, #DCDCDD 0%, #C5C3C6 100%)" }}
     >
+      {/* ── Background dot pattern with fade ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(54,69,79,.12) 1px, transparent 1px)",
+          backgroundSize: "16px 16px",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+        }}
+      />
+
+      {/* ── Fading dot cloud – top left ── */}
+      <div
+        className="absolute left-0 top-[25%] hidden w-[60%] h-[600px] lg:block pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(76,92,104,0.16) 2px, transparent 2.2px)",
+          backgroundSize: "21px 19px",
+          WebkitMaskImage:
+            "radial-gradient(circle at 0% 0%, black 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.1) 60%, transparent 80%)",
+          maskImage:
+            "radial-gradient(circle at 0% 0%, black 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.1) 60%, transparent 80%)",
+        }}
+      />
+
+      {/* ── Fading dot cloud – bottom right ── */}
+      <div
+        className="absolute right-0 bottom-[10%] hidden w-[60%] h-[600px] lg:block pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(76,92,104,0.16) 2px, transparent 2.2px)",
+          backgroundSize: "21px 19px",
+          WebkitMaskImage:
+            "radial-gradient(circle at 100% 100%, black 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.1) 60%, transparent 80%)",
+          maskImage:
+            "radial-gradient(circle at 100% 100%, black 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.1) 60%, transparent 80%)",
+        }}
+      />
+
+      {/* ── Broken circle outlines ── */}
+      <div
+        className="absolute left-[6%] top-[18%] h-[150px] w-[150px] rounded-full pointer-events-none"
+        style={{
+          border: "2.5px solid rgba(124,132,140,.28)",
+          WebkitMaskImage:
+            "conic-gradient(black 0deg, black 110deg, transparent 110deg, transparent 240deg, black 240deg, black 310deg, transparent 310deg)",
+          maskImage:
+            "conic-gradient(black 0deg, black 110deg, transparent 110deg, transparent 240deg, black 240deg, black 310deg, transparent 310deg)",
+        }}
+      />
+      <div
+        className="absolute right-[8%] top-[30%] hidden h-[200px] w-[200px] rounded-full sm:block pointer-events-none"
+        style={{
+          border: "2px solid rgba(124,132,140,.24)",
+          WebkitMaskImage:
+            "conic-gradient(transparent 0deg, transparent 40deg, black 40deg, black 160deg, transparent 160deg, transparent 280deg, black 280deg, black 340deg, transparent 340deg)",
+          maskImage:
+            "conic-gradient(transparent 0deg, transparent 40deg, black 40deg, black 160deg, transparent 160deg, transparent 280deg, black 280deg, black 340deg, transparent 340deg)",
+        }}
+      />
+      <div
+        className="absolute left-[15%] top-[50%] hidden h-[180px] w-[180px] rounded-full lg:block pointer-events-none"
+        style={{
+          border: "2px solid rgba(124,132,140,.25)",
+          WebkitMaskImage:
+            "conic-gradient(transparent 0deg, transparent 90deg, black 90deg, black 230deg, transparent 230deg)",
+          maskImage:
+            "conic-gradient(transparent 0deg, transparent 90deg, black 90deg, black 230deg, transparent 230deg)",
+        }}
+      />
+      <div
+        className="absolute right-[5%] bottom-[20%] h-[160px] w-[160px] rounded-full pointer-events-none"
+        style={{
+          border: "2.5px solid rgba(124,132,140,.26)",
+          WebkitMaskImage:
+            "conic-gradient(black 0deg, black 80deg, transparent 80deg, transparent 190deg, black 190deg, black 260deg, transparent 260deg)",
+          maskImage:
+            "conic-gradient(black 0deg, black 80deg, transparent 80deg, transparent 190deg, black 190deg, black 260deg, transparent 260deg)",
+        }}
+      />
+      <div
+        className="absolute left-[40%] top-[12%] h-[90px] w-[90px] rounded-full pointer-events-none"
+        style={{
+          border: "2px solid rgba(124,132,140,.3)",
+          WebkitMaskImage:
+            "conic-gradient(transparent 0deg, transparent 60deg, black 60deg, black 180deg, transparent 180deg)",
+          maskImage:
+            "conic-gradient(transparent 0deg, transparent 60deg, black 60deg, black 180deg, transparent 180deg)",
+        }}
+      />
+      <div
+        className="absolute left-[28%] bottom-[15%] hidden h-[130px] w-[130px] rounded-full lg:block pointer-events-none"
+        style={{
+          border: "2px solid rgba(124,132,140,.22)",
+          WebkitMaskImage:
+            "conic-gradient(transparent 0deg, transparent 120deg, black 120deg, black 250deg, transparent 250deg)",
+          maskImage:
+            "conic-gradient(transparent 0deg, transparent 120deg, black 120deg, black 250deg, transparent 250deg)",
+        }}
+      />
+
       {/* ── Page Header ── */}
       <div
         className="relative overflow-hidden"
         style={{
           background:
-            "linear-gradient(to bottom, #36454F 0%, #4C5C68 55%, #899097 80%, #C5C3C6 100%)",
+            "linear-gradient(to bottom, #2C3943 0%, #3E4E5A 60%, #899097 88%, #DCDCDD 100%)",
         }}
       >
-        {/* Dot overlay */}
+        {/* Blueprint Grid Lines Grid */}
         <div
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 opacity-40"
           style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.45) 1px, transparent 1px)",
-            backgroundSize: "14px 14px",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 30%, black 70%)",
-            maskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 30%, black 70%)",
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+            `,
+            backgroundSize: "45px 45px",
+            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 20%, rgba(0,0,0,0.5) 60%, transparent 100%)",
+            maskImage: "radial-gradient(circle at 50% 50%, black 20%, rgba(0,0,0,0.5) 60%, transparent 100%)",
           }}
         />
+
+        {/* Glowing abstract background orbs */}
+        <div className="absolute right-[8%] top-[-15%] h-[350px] w-[350px] rounded-full bg-[#899097]/22 blur-[90px] pointer-events-none" />
+        <div className="absolute left-[3%] bottom-[12%] h-[280px] w-[280px] rounded-full bg-[#4C5C68]/28 blur-[75px] pointer-events-none" />
+
+        {/* Abstract Vector Blueprint Schema Elements (Arcs/Radar styles) */}
+        <div
+          className="absolute right-[12%] top-[15%] h-[260px] w-[260px] rounded-full border border-white/5 pointer-events-none"
+          style={{
+            WebkitMaskImage: "conic-gradient(black 0deg, black 110deg, transparent 110deg, transparent 230deg, black 230deg, black 310deg, transparent 310deg)",
+            maskImage: "conic-gradient(black 0deg, black 110deg, transparent 110deg, transparent 230deg, black 230deg, black 310deg, transparent 310deg)",
+          }}
+        />
+        <div
+          className="absolute right-[12%] top-[15%] h-[300px] w-[300px] rounded-full border border-dashed border-white/5 pointer-events-none"
+          style={{
+            WebkitMaskImage: "conic-gradient(transparent 0deg, transparent 70deg, black 70deg, black 200deg, transparent 200deg)",
+            maskImage: "conic-gradient(transparent 0deg, transparent 70deg, black 70deg, black 200deg, transparent 200deg)",
+          }}
+        />
+
+        {/* Blueprint coordinate markers (+) */}
+        <div className="absolute left-[18%] top-[25%] text-[10px] font-light text-white/12 select-none pointer-events-none">+</div>
+        <div className="absolute right-[28%] top-[38%] text-[10px] font-light text-white/12 select-none pointer-events-none">+</div>
+        <div className="absolute left-[40%] top-[60%] text-[10px] font-light text-white/12 select-none pointer-events-none">+</div>
+        <div className="absolute right-[15%] top-[65%] text-[10px] font-light text-white/12 select-none pointer-events-none">+</div>
 
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 pb-20 pt-36 sm:px-8 sm:pb-24 sm:pt-40 lg:px-10 lg:pb-28 lg:pt-44">
           <motion.div
@@ -319,29 +483,11 @@ export default function ProjectsPage() {
               A collection of work that reflects my craft across AI, full-stack development, and systems design.
             </p>
           </motion.div>
-
-          {/* Quick nav */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.18, ease: EASE }}
-            className="mt-10 flex flex-wrap gap-3 sm:mt-12"
-          >
-            {projects.map((p) => (
-              <a
-                key={p.id}
-                href={`#${p.id}`}
-                className="rounded-full border border-white/20 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white/75 backdrop-blur-sm transition-all duration-200 hover:border-white/50 hover:bg-white/15 hover:text-white"
-              >
-                {p.title}
-              </a>
-            ))}
-          </motion.div>
         </div>
       </div>
 
       {/* ── Projects ── */}
-      <div className="px-4 sm:px-8 lg:px-10">
+      <div className="relative z-10 px-4 sm:px-8 lg:px-10">
         {projects.map((project, i) => (
           <div key={project.id}>
             <ProjectSection
@@ -358,7 +504,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* ── Footer CTA ── */}
-      <div className="px-4 pb-24 pt-8 sm:px-8 sm:pb-28 lg:px-10">
+      <div className="relative z-10 px-4 pb-24 pt-8 sm:px-8 sm:pb-28 lg:px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -378,7 +524,7 @@ export default function ProjectsPage() {
           <div className="mt-8">
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2.5 rounded-full bg-[#36454F] px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#4C5C68] hover:shadow-lg sm:text-base"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#36454F] px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#4C5C68] hover:shadow-lg sm:text-base cursor-pointer"
             >
               Get in Touch →
             </Link>
